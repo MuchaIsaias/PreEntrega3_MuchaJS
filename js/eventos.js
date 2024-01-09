@@ -41,9 +41,12 @@ if (isLoggedIn==="true") {
         let id_prodcutos_carrito=template_productos_carrito.querySelector(".contenedor-productos-carrito");
         let contenedor_productos_carrito=document.querySelector(".conteiner_carrito");
         id_prodcutos_carrito.setAttribute('data-product-id', elm.id);
+        let punto="."
         template_productos_carrito.querySelector(".nombre-producto").innerText=elm.nombre;
         template_productos_carrito.querySelector(".precio-producto").innerText="$"+elm.precio;
-        template_productos_carrito.querySelector(".img-productos").src=elm.img;
+        let rutaOriginal = elm.img;
+        let nuevaRuta = rutaOriginal.replace("./", "../");  
+        template_productos_carrito.querySelector(".img-productos").src = nuevaRuta;
         contenedor_productos_carrito.append(template_productos_carrito);
     });
 }else{
@@ -54,7 +57,9 @@ if (isLoggedIn==="true") {
         id_prodcutos_carrito.setAttribute('data-product-id', elm.id);
         template_productos_carrito.querySelector(".nombre-producto").innerText=elm.nombre;
         template_productos_carrito.querySelector(".precio-producto").innerText="$"+elm.precio;
-        template_productos_carrito.querySelector(".img-productos").src=elm.img;
+        let rutaOriginal = elm.img;
+        let nuevaRuta = rutaOriginal.replace("./", "../");  
+        template_productos_carrito.querySelector(".img-productos").src = nuevaRuta;
         contenedor_productos_carrito.append(template_productos_carrito);
     }
 )}
