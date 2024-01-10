@@ -1,3 +1,12 @@
+class Usuario {
+    constructor(id, nombre, contraseña) {
+        this.id = id;
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.carrito = [];
+    }
+}
+let todosLosUsuarios=[]
 
 
 let registro= document.querySelector(".contenedor-registro");
@@ -9,33 +18,45 @@ let contenido_login = template_login.content
 let clon_login=contenido_login.cloneNode(true)
 
 
-class Usuario {
-    constructor(id, nombre, contraseña) {
-        this.id = id;
-        this.nombre = nombre;
-        this.contraseña = contraseña;
-        this.carrito = [];
-    }
-}
-let todosLosUsuarios=[]
 
 //Funciona
-registro.addEventListener('submit',(evt) => {
+// registro.addEventListener('submit',(evt) => {
+//     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
+//     let registr_contraseña= registro.querySelector(".contenedor-registro_input-contraseña").value;
+//     todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
+//     let numberID = todosLosUsuarios.length + 1;
+//     let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
+//     todosLosUsuarios.push(nuevoUsuario);
+//     localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios))
+// });
+registro.addEventListener('submit', (evt) => {
+    evt.preventDefault(); // Prevenir la recarga de la página por defecto
+
     let registro_nombre = registro.querySelector(".contenedor-registro_input-nombre").value;
-    let registr_contraseña= registro.querySelector(".contenedor-registro_input-contraseña").value;
-    todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
-    let usuarioExistente = todosLosUsuarios.find(usuario => usuario.nombre === registro_nombre);
-    if (usuarioExistente) {
-        evt.preventDefault()
-        alert("Nombre de usuario ya existente")
-    }else{
+    let registr_contraseña = registro.querySelector(".contenedor-registro_input-contraseña").value;
+    
+    let todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    if (todosLosUsuarios.length === 0) {
         let numberID = todosLosUsuarios.length + 1;
         let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
         todosLosUsuarios.push(nuevoUsuario);
-        localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios))
+        localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
+        window.location.reload();
+    } else {
+        let usuarioExistente = todosLosUsuarios.find(usuario => usuario.nombre === registro_nombre);
+
+        if (usuarioExistente) {
+            alert("Nombre de usuario ya existente");
+        } else {
+            let numberID = todosLosUsuarios.length + 1;
+            let nuevoUsuario = new Usuario(numberID.toString(), registro_nombre, registr_contraseña);
+            todosLosUsuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(todosLosUsuarios));
+            window.location.reload();
+        }
     }
 });
-
 todosLosUsuarios = JSON.parse(localStorage.getItem('usuarios'))
 console.log(todosLosUsuarios)
 //Funciona
@@ -77,7 +98,7 @@ window.addEventListener('load', () => {
     }
 }); 
 
-
+localStorage.clear()
 function obtenerIdUsuario() {
     let idUsuarioRecuperar= sessionStorage.getItem('id')
     let isLoggedIn = sessionStorage.getItem('isLoggedIn');

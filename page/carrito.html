@@ -159,10 +159,7 @@
       </ul>
     </nav>
 </header>
-    <main>
-        <section class="titulo-carrito">
-            <h2>Carrito</h2>
-        </section>
+    <main class="main-carrito">
         <section class="conteiner_carrito collum">
             <article class="conteiner-texto-carrito col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <p>PRODUCTOS</p>
@@ -196,10 +193,22 @@
             </article>
             </template>
         </section>
-        <section>
-            <div></div>
-            <div></div>
-            <div></div>
+        <section class="resultados-carrito">
+            <div>
+              <p>Total del carrito</p>
+            </div>
+            <div>
+              <template class="template-productos-precio">
+                <p>Subtotal</p>
+                <p class="precios"></p>
+              </template>
+            </div>
+            <div>
+              <template class="template-productos-total">
+                <p>Precio Final</p>
+                <p class="total-precio"></p>
+              </template>
+            </div>
         </section>
     </main>
   <footer class="footer row w-100">

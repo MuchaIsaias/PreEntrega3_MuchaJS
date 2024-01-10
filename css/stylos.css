@@ -652,7 +652,9 @@
   main .slider .slider-track .slide img {
     width: 100%;
   }
-
+  main .conteiner_carrito{
+    width: 60%;
+  }
 main .conteiner_carrito .conteiner-texto-carrito{
   display: flex;
   align-items: center;
@@ -688,6 +690,18 @@ main .conteiner_carrito .contenedor-productos-carrito .nombre-producto{
     font-size: 1.8rem;
     font-weight: 500;
     color: #4286f4;
+}
+.main-carrito{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.main-carrito .resultados-carrito{
+  width: 40%;
+}
+.main-carrito .resultados-carrito p{
+  font-size: 2.5rem;
+
 }
 
   @keyframes scroll {
