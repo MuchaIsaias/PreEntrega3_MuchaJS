@@ -3,10 +3,7 @@ let botones_productos = document.querySelectorAll('.btn-agregar-carrito')
 
 botones_productos.forEach(function (boton) {
     boton.addEventListener('click', function () {
-        // me da el producto mas cercano al boto que le di click
         let productIdd = this.closest(".contenedor-productos").dataset.productId;
-
-        // Agregar el producto al carrito
         agregarAlCarrito(productIdd);
     });
 });

@@ -32,12 +32,11 @@ catalogoProductos = [
 let isLoggedIn = sessionStorage.getItem('isLoggedIn');
 let carrito_sin_login_guardado = JSON.parse(sessionStorage.getItem('carritos'))
 if (isLoggedIn==="true") {
-
+    let totalPrecio=0
     let id_iniciado = obtenerIdUsuario()
     let usuariosGuardados = localStorage.getItem('usuarios');
     let todosLosUsuarios = JSON.parse(usuariosGuardados);
     let usuarioEncontrado = todosLosUsuarios.find(usuario => usuario.id === id_iniciado);
-
     usuarioEncontrado.carrito.forEach((elm)=>{
         let template_productos_carrito=document.querySelector(".template-productos-carrito").content.cloneNode(true);
         let id_prodcutos_carrito=template_productos_carrito.querySelector(".contenedor-productos-carrito");

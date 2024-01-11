@@ -50,6 +50,52 @@
       <ul id="listaProductos">
         <!-- Aquí se mostrarán los resultados del buscador -->
       </ul>
+      <template class="template-login">
+        <ul class="content-login">
+            <li class="li-categorias2"> 
+            <a href="../page/mycuenta.html"><img src="../img/grupo.png" alt=""></a>
+            <ul class="link-mycuenta">
+                <li><a href="../page/mycuenta.html">Mycuenta</a></li>
+                <li><a href="">Pedidos</a></li>
+                <li><a href="">Direccion</a></li>
+                <li><button class="cerrar">Cerar Sesion</button></li>
+            </ul>
+            </li>
+        </ul>
+    </template>
+    <div class="contenedor-login">
+      <button type="button" class="btn btn-primary boton-login" data-bs-toggle="modal" data-bs-target="#exampleModal20">Login</button>
+      <div class="modal fade index-modal" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h2 class="modal-title fs-5" id="exampleModalLabel20">Acceder</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <form action="" class="contenedor-inicio">
+                  <h2>Iniciar Sesion</h2>
+                  <input type="text" name="" id="" placeholder="nombre" class="contenedor-inicio_input-nombre" >
+                  <input type="password" placeholder="Contraseña" required class="contenedor-inicio_input-contraseña">
+                  <input type="submit">
+              </form>
+              <form action="" class="contenedor-registro">
+                  <h2>Registro</h2>
+                  <input type="text" name="" id="cuenta" placeholder="nombre" required class="contenedor-registro_input-nombre">
+                  <input type="password" placeholder="Contraseña" required class="contenedor-registro_input-contraseña">
+                  <input type="email" name="" id="gmail" placeholder="email"class="contenedor-registro_input-email">
+                  <input type="submit" class="boton-registro">
+              </form>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+          </div>
+      </div>
+      </div>
+      <div class="contenedor-carrito"><a href="../page/carrito.html"><img src="../img/carro-de-la-compra.png" alt=""></a></div>
+    </div>
     </div>
   </div>
   <header class="header">
